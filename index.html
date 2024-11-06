@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PDF Text Underliner</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
+    <script src="https://unpkg.com/pdf-lib@1.17.1"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" type="image/png" href="./favicon.png"/>
+</head>
+<body>
+    <nav class="navbar">
+        <h1 style="color: #1f2937; font-size: 1.5rem; font-weight: 600;">PDF Text Underliner</h1>
+    </nav>
+    
+    <div class="container">
+        <div id="tools">
+            <input type="file" id="pdfInput" accept="application/pdf">
+            <button id="drawBtn" class="tool-button"><i class="fa-solid fa-paintbrush"></i></button>
+            <button id="selectBtn" class="tool-button"><i class="fa-solid fa-arrow-pointer"></i></button>
+            <button id="undo" class="tool-button"><i class="fa-solid fa-rotate-left"></i> </button>
+            <button id="redoBtn" class="tool-button"><i class="fa-solid fa-rotate-right"></i></button>
+            <button id="clearBtn" class="tool-button"><i class="fa-solid fa-trash"></i></button>
+            <button id="downloadBtn" class="tool-button" data-tooltip="Download PDF">
+                <i class="fa-solid fa-download"></i>
+            </button>
+            <button id="increaseBtn" class="tool-button"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
+            <button id="decreaseBtn" class="tool-button"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
+            <input type="color" id="color-picker" value="rgba(0,0,0,1)">
+            <input type="range" id="brush-size" min="1" max="20" value="2" step="0.5">
+            <span id="size-label">2px</span>
+        </div>
+
+        <div id="page-controls">
+            <button id="prevPage" class="tool-button">Previous Page</button>
+            <span id="page-info">Page 0 of 0</span>
+            <button id="nextPage" class="tool-button">Next Page</button>
+        </div>
+
+        <div id="canvas-wrapper">
+            <canvas id="pdfCanvas"></canvas>
+            <canvas id="drawingCanvas"></canvas>
+        </div>
+
+        <div id="error-message"></div>
+        <div id="loading-message"></div>
+    </div>
+    <script type="module" src="main.js"></script>
+</body>
+</html>

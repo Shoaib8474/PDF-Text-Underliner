@@ -1,0 +1,33 @@
+#Project Title: PDF Text Underliner
+
+The PDF Text Underliner is a web-based application that allows users to upload a PDF document, view it, and annotate the text by underlining or highlighting specific sections. The application leverages several key libraries to achieve this functionality:
+
+
+
+## Libraries Used
+
+1. **pdf.js**: This library is used to render the PDF document within the web page. It provides a canvas-based rendering of PDF pages, allowing the application to display the PDF content.
+
+2. **fabric.js**: Fabric.js is the core library that powers the drawing and annotation functionality of the application. It provides a rich set of tools for creating and manipulating vector graphics on an HTML5 canvas.
+
+3. **pdf-lib**: This library is used to modify the PDF document by embedding the drawings and annotations made by the user. It allows the application to generate a new PDF file with the user's annotations.
+
+
+
+## How They Work Together
+
+1. Rendering the PDF: When the user uploads a PDF file, the application uses `pdf.js` to load and render the PDF content on a canvas element. This canvas serves as the background for the drawing and annotation layer.
+
+2. Drawing and Annotation: The user can switch between the "Draw" and "Select" modes using the provided buttons. In the "Draw" mode, the user can use the color picker and brush size controls to annotate the PDF content. Fabric.js is responsible for capturing the user's input, rendering the annotations, and managing the drawing state.
+
+3. Undo and Redo: The application keeps track of the drawing state for each page using the `drawingStates` map. This allows users to undo and redo their annotations by removing or restoring the last drawn object.
+
+4. Exporting the Annotated PDF: When the user clicks the "Download" button, the application uses `pdf-lib` to retrieve the original PDF data, overlay the user's annotations on each page, and generate a new PDF file with the annotations embedded. This new PDF file is then made available for the user to download.
+
+5. Page Navigation: The application allows users to navigate between pages of the PDF document. When switching pages, the drawing state for the current page is saved, and the drawing state for the new page is loaded, ensuring that the annotations are preserved across page changes.
+
+6. Responsive Design: The application adjusts the rendering of the PDF and the drawing canvas to fit the user's viewport, providing a seamless experience.
+
+7. Error Handling and Feedback: The application includes error messages and loading indicators to provide feedback to the user during various operations, such as PDF loading, rendering.
+
+Overall, the PDF Text Underliner application combines the capabilities of `pdf.js`, `fabric.js`, and `pdf-lib` to create a user-friendly tool for annotating PDF documents directly within the web browser.
